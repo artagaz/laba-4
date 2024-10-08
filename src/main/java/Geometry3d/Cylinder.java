@@ -1,17 +1,20 @@
 package Geometry3d;
 
+import Exeptions.NegativeRadiusExeption;
+import Exeptions.NegativeSideException;
 import Geometry2d.Circle;
 
 public class Cylinder {
     private Circle bottom;
     private Double height;
 
-    public Cylinder(Double R, Double H) {
-        try {
+    public Cylinder(Double R, Double H) throws NegativeSideException {
+        if (H<=0) throw new NegativeSideException("Height <= 0");
+        else height = H;
 
+        try {
             bottom = new Circle(R);
-            height = H;
-        } catch (Exception e) {
+        } catch (NegativeRadiusExeption e) {
             throw new RuntimeException(e);
         }
     }

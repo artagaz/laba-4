@@ -1,5 +1,7 @@
 package Geometry2d;
 
+import Exeptions.NegativeSideException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,9 +9,10 @@ public class Rectangle {
     private final Double a;
     private final Double b;
 
-    public Rectangle(Double A, Double B) {
-        a = A;
-        b = B;
+    public Rectangle(Double A, Double B) throws NegativeSideException {
+        if (A <= 0) throw new NegativeSideException("A<=0");
+        if (B <= 0) throw new NegativeSideException("B<=0");
+        else {a = A; b = B;}
     }
 
     public Double area() {

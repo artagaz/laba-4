@@ -1,13 +1,16 @@
 package Geometry2d;
 
+import Exeptions.NegativeRadiusExeption;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Circle implements Figure {
     private final Double radius;
 
-    public Circle(Double R) {
-        radius = R;
+    public Circle(Double R) throws NegativeRadiusExeption {
+        if (R <= 0) throw new NegativeRadiusExeption();
+        else radius = R;
     }
 
     public Double area() {
