@@ -114,7 +114,7 @@ class BookDetailDialog(QDialog):
             pixmap = QPixmap(self.book[5])
         else:
             # if not picture loaded
-            default_image_path = "images/1default_book.jpg"
+            default_image_path = "images/default_book.jpg"
             if os.path.exists(default_image_path):
                 pixmap = QPixmap(default_image_path)
             else:
